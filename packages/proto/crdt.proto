@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package crdt;
+
+option go_package = "github.com/rayhanadev/red/pkg/pb;pb";
+
+// Define an operation for the RGA-based text editor
+message Operation {
+    string operation_type = 1; // "insert" or "delete"
+    string char_id = 2;        // Unique identifier for the character
+    string value = 3;          // Character to insert (for "insert" only)
+    string prev_id = 4;        // ID of the previous character
+}
+
+// Define a message for the stream
+message StreamMessage {
+    repeated Operation operations = 1; // List of CRDT operations
+}
+
+// The CRDT service definition
+service CrdtService {
+    // Bidirectional streaming for real-time updates
+    rpc SyncStream(stream StreamMessage) returns (stream StreamMessage);
+}

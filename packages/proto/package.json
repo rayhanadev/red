@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "@repo/proto",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=out ./crdt.proto"
+  },
+  "exports": {
+    ".": "./out/crdt.ts"
+  },
+  "dependencies": {
+    "ts-proto": "^2.3.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
