@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "@repo/client",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "bun build --compile --minify --sourcemap --bytecode src/index.ts --outfile dist/red",
+    "start": "./dist/red",
+    "check-type": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/proto": "*",
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/marked-terminal": "^6.1.1",
+    "ink": "4.3",
+    "inquirer": "^12.1.0",
+    "lodash.debounce": "^4.0.8",
+    "marked": "^15.0.1",
+    "marked-terminal": "^7.2.1",
+    "react": "^18.3.1",
+    "sade": "^1.8.1"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12"
+  }
+}
