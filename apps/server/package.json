@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "@repo/server",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "bun build --compile --minify --sourcemap --bytecode src/index.ts --outfile dist/red-server",
+    "start": "./dist/red-server",
+    "check-type": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.2",
+    "@repo/proto": "*"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

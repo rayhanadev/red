@@ -1,18 +1,20 @@
 {
-  "private": true,
   "name": "@repo/proto",
   "version": "0.0.0",
-  "scripts": {
-    "build": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=out ./crdt.proto"
-  },
   "exports": {
-    ".": "./out/crdt.ts"
-  },
-  "dependencies": {
-    "ts-proto": "^2.3.0"
+    ".": "./out/crdt_pb.ts",
+    "./server": "./out/crdt_pb.grpc-server.ts",
+    "./client": "./out/crdt_pb.grpc-client.ts"
   },
   "license": "MIT",
+  "private": true,
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "build": "protoc --ts_out ./out --proto_path . --ts_opt ts_nocheck --ts_opt eslint_disable --ts_opt add_pb_suffix --ts_opt client_grpc1 --ts_opt server_grpc1 ./crdt.proto"
+  },
+  "dependencies": {
+    "@protobuf-ts/plugin": "^2.9.4"
   }
 }
